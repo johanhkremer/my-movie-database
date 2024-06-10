@@ -28,6 +28,14 @@ const get = async <T>(endpoint: string): Promise<TMDBMovieResponse<T>> => {
     return results.data
 }
 
-export const getTrendingMovies = async () => {
-    return get<Movies>('/3/trending/all/day?language=en-US',)
+export const getNowPlayingMovies = async () => {
+    return get<Movies>('movie/now_playing?language=en-US&page=1')
+}
+
+export const getPopularMovies = async () => {
+    return get<Movies>('movie/popular?language=en-US&page=1')
+}
+
+export const getTopRatedMovies = async () => {
+    return get<Movies>('movie/top_rated?language=en-US&page=1')
 }

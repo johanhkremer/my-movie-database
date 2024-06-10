@@ -1,9 +1,9 @@
-import { getTrendingMovies } from "../service/TMDB_API"
+import { getPopularMovies } from "../service/TMDB_API"
 
 const HomePage = () => {
 
     try {
-        const movies = getTrendingMovies();
+        const movies = getPopularMovies();
         console.log(movies);
     } catch (error) {
         console.error("Error fetching movies:", error);
