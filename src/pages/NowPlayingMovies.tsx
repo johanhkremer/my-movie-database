@@ -1,11 +1,29 @@
-import React from 'react'
+import { useQuery } from "@tanstack/react-query"
+import { getNowPlayingMovies } from "../service/TMDB_API"
+import MovieCard from "../components/MovieCard"
 
-type Props = {}
+function NowPlayingMovies() {
+    const {
+        isPending,
+        isError,
+        data,
+        error } = useQuery({
+            queryKey: ['nowPlaingMovies'],
+            queryFn: getNowPlayingMovies,
+        })
 
-const NowPlayingMovies = (props: Props) => {
+    if (isPending) {
+        return <span>Loading...</span>
+    }
+
+    if (isError) {
+        return <span>Error: {error.message}</span>
+    }
+
     return (
-        <div>NowPlayingMovies</div>
+        <MovieCard movies={data.results} />
     )
 }
+
 
 export default NowPlayingMovies

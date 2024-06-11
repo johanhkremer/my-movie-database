@@ -1,8 +1,5 @@
-import React from 'react'
 
-type Props = {}
-
-const PopularMovies = (props: Props) => {
+const PopularMovies = () => {
     return (
         <div>PopularMovies</div>
     )
