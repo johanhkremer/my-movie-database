@@ -1,13 +1,13 @@
-import { useQuery } from "@tanstack/react-query"
 import { getNowPlayingMovies } from "../service/TMDB_API"
-import MovieCard from "../components/MovieCard"
+import MovieCard from "../components/MoviesCard"
+import { useMovies } from "../hooks/useMovies"
 
 function NowPlayingMovies() {
     const {
         isPending,
         isError,
         data,
-        error } = useQuery({
+        error } = useMovies({
             queryKey: ['nowPlaingMovies'],
             queryFn: getNowPlayingMovies,
         })
