@@ -1,14 +1,15 @@
-import { useQuery, UseQueryResult, QueryFunction } from '@tanstack/react-query'
+import { useQuery, UseQueryResult } from '@tanstack/react-query'
 import { TMDBMovieResponse } from '../types/Movies'
 
-type UseMovies<T> = {
+export type UseMovies<T> = {
     queryKey: string[],
-    queryFn: QueryFunction<TMDBMovieResponse<T>>,
+    queryFn: (page: number) => Promise<TMDBMovieResponse<T>>,
+    page: number
 }
 
-export const useMovies = <T>({ queryKey, queryFn }: UseMovies<T>): UseQueryResult<TMDBMovieResponse<T>, Error> => {
+export const useMovies = <T>({ queryKey, queryFn, page }: UseMovies<T>): UseQueryResult<TMDBMovieResponse<T>, Error> => {
     return useQuery<TMDBMovieResponse<T>, Error>({
-        queryKey,
-        queryFn,
+        queryKey: [...queryKey, page],
+        queryFn: () => queryFn(page)
     })
 }

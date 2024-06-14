@@ -15,8 +15,8 @@ const instance = axios.create({
 })
 
 //Generic GET function to handel different GET requests from TMDB API
-const getMovies = async <T>(endpoint: string): Promise<TMDBMovieResponse<T>> => {
-    const results = await instance.get<TMDBMovieResponse<T>>(endpoint)
+const getMovies = async <T>(endpoint: string, params?: object): Promise<TMDBMovieResponse<T>> => {
+    const results = await instance.get<TMDBMovieResponse<T>>(endpoint, { params })
 
     return results.data
 }
@@ -27,14 +27,36 @@ export const getMovieDetails = async (id: number) => {
     return results.data
 }
 
-export const getNowPlayingMovies = async () => {
-    return getMovies<Movies>('movie/now_playing?language=en-US&page=1')
+//Olika movieslistor
+export const getNowPlayingMovies = async (page: number) => {
+
+    const params = {
+        page: page.toString(),
+        language: 'en-US',
+        include_adult: 'false'
+    }
+
+    return getMovies<Movies>('movie/now_playing', params)
 }
 
-export const getPopularMovies = async () => {
-    return getMovies<Movies>('movie/popular?language=en-US&page=1')
+export const getPopularMovies = async (page: number) => {
+    const params = {
+        page: page.toString(),
+        language: 'en-US',
+        include_adult: 'false'
+
+    }
+
+    return getMovies<Movies>(`movie/popular`, params)
 }
 
-export const getTopRatedMovies = async () => {
-    return getMovies<Movies>('movie/top_rated?language=en-US&page=1')
+export const getTopRatedMovies = async (page: number) => {
+    const params = {
+        page: page.toString(),
+        language: 'en-US',
+        include_adult: 'false'
+
+    }
+
+    return getMovies<Movies>(`movie/top_rated`, params)
 }

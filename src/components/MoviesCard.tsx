@@ -16,13 +16,18 @@ const MovieCard: React.FC<MovieCardProp> = ({ movies }) => {
         <Container>
             <Row className="justify-content-md-center">
                 {movies.map((movie) => (
-                    <Col key={movie.id} >
+                    <Col key={movie.id} className='mb-3'>
                         <Link to={`/movie/${movie.id}`} className="movie-card-link" >
-                            <Card style={{ width: '10rem' }} className='movie-card'>
-                                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                            <Card style={{ width: '15rem' }} className='movie-card'>
+                                <Card.Img
+                                    variant="top"
+                                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                    alt={movie.title}
+                                    className='cardImg'
+                                />
                                 <Card.Body>
-                                    <Card.Title>{movie.title}</Card.Title>
-                                    <Card.Text>{movie.release_date}</Card.Text>
+                                    <Card.Title className='movie-card-title'>{movie.title}</Card.Title>
+                                    <Card.Text className='movie-card-text'>{movie.release_date}</Card.Text>
                                 </Card.Body>
                             </Card>
                         </Link>
