@@ -1,10 +1,10 @@
-import { getTopRatedMovies } from "../service/TMDB_API"
-import MovieCard from "../components/MoviesCard"
-import { useMovies } from "../hooks/useMovies"
+import { getPopularPeople } from "../service/TMDB_API"
+import MovieCard from "../components/PeopleCard"
+import { usePeople } from "../hooks/usePeople"
 import { useState } from "react"
 import TMDBPagination from "../components/TMDBPagination"
 
-function TopRatedMovies() {
+function PopularPeople() {
     const [page, setPage] = useState(1)
 
 
@@ -14,9 +14,9 @@ function TopRatedMovies() {
         data,
         error,
         isFetching
-    } = useMovies({
-        queryKey: ['nowPlaingMovies'],
-        queryFn: getTopRatedMovies, page
+    } = usePeople({
+        queryKey: ['PopularPeople'],
+        queryFn: getPopularPeople, page
     })
 
     if (isPending) {
@@ -36,7 +36,7 @@ function TopRatedMovies() {
                 isFetching={isFetching}
             />
 
-            <MovieCard movies={data.results} />
+            <MovieCard people={data.results} />
 
             <TMDBPagination
                 currentPage={page}
@@ -48,4 +48,4 @@ function TopRatedMovies() {
     )
 }
 
-export default TopRatedMovies
+export default PopularPeople

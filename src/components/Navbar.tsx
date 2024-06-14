@@ -21,6 +21,7 @@ function Navigation() {
                         <Nav.Link as={Link} to="/nowplayingmovies">Now Playing</Nav.Link>
                         <Nav.Link as={Link} to="/popularmovies">Popular</Nav.Link>
                         <Nav.Link as={Link} to="/TopRatedMovies">Top Rated</Nav.Link>
+                        <Nav.Link as={Link} to="/popularpeople">Popular</Nav.Link>
 
                         <NavDropdown title="Genre" id="navbarScrollingDropdown">
                             <NavDropdown.Item as={Link} to="/genre/action">Action</NavDropdown.Item>

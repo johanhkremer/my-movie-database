@@ -10,6 +10,8 @@ export type UseMovies<T> = {
 export const useMovies = <T>({ queryKey, queryFn, page }: UseMovies<T>): UseQueryResult<TMDBMovieResponse<T>, Error> => {
     return useQuery<TMDBMovieResponse<T>, Error>({
         queryKey: [...queryKey, page],
-        queryFn: () => queryFn(page)
+        queryFn: () => queryFn(page),
     })
 }
+
+//! Måste fixa med keepPreviousData

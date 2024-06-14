@@ -2,6 +2,7 @@ import { getPopularMovies } from "../service/TMDB_API"
 import MovieCard from "../components/MoviesCard"
 import { useMovies } from "../hooks/useMovies"
 import { useState } from "react"
+import TMDBPagination from "../components/TMDBPagination"
 
 function PopularMovies() {
     const [page, setPage] = useState(1)
@@ -11,10 +12,12 @@ function PopularMovies() {
         isPending,
         isError,
         data,
-        error } = useMovies({
-            queryKey: ['PopularMovies'],
-            queryFn: getPopularMovies, page
-        })
+        error,
+        isFetching
+    } = useMovies({
+        queryKey: ['PopularMovies'],
+        queryFn: getPopularMovies, page
+    })
 
     if (isPending) {
         return <span>Loading...</span>
@@ -26,14 +29,21 @@ function PopularMovies() {
 
     return (
         <>
+            <TMDBPagination
+                currentPage={page}
+                totalPages={data.total_pages}
+                setPage={setPage}
+                isFetching={isFetching}
+            />
+
             <MovieCard movies={data.results} />
-            {/* Pagination Controls */}
-            <button onClick={() => setPage((prev) => Math.max(prev - 1, 1))} disabled={page === 1}>
-                Previous
-            </button>
-            <button onClick={() => setPage((prev) => prev + 1)}>
-                Next
-            </button>
+
+            <TMDBPagination
+                currentPage={page}
+                totalPages={data.total_pages}
+                setPage={setPage}
+                isFetching={isFetching}
+            />
         </>
     )
 }
