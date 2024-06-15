@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Movie, Movies, TMDBMovieResponse } from "../types/Movies";
+import { Genre, Movie, Movies, TMDBMovieResponse } from "../types/Movies";
 import { People, Person, TMDBPeopleResponse } from "../types/People";
 
 const BASE_URL = import.meta.env.VITE_API_BASEURL
@@ -35,15 +35,21 @@ export const getMovieDetails = async (id: number) => {
     return results.data
 }
 
-export const getPopularPeopleDetails = async (id: number) => {
-    const results = await instance.get<Person>(`person//${id}?language=en-US`)
+export const getPersonDetails = async (id: number) => {
+    const results = await instance.get<Person>(`person/${id}?language=en-US`)
+
+    return results.data
+}
+
+//Get list of genres
+export const getGenres = async () => {
+    const results = await instance.get<Genre>(`genre/movie/list?language=en'`)
 
     return results.data
 }
 
 //Send movie request to generic GET functions
-export const getNowPlayingMovies = async (page: number) => {
-
+export const getNowPlayingMovies = (page: number) => {
     const params = {
         page: page.toString(),
         language: 'en-US',
@@ -53,7 +59,7 @@ export const getNowPlayingMovies = async (page: number) => {
     return getMovies<Movies>('movie/now_playing', params)
 }
 
-export const getPopularMovies = async (page: number) => {
+export const getPopularMovies = (page: number) => {
     const params = {
         page: page.toString(),
         language: 'en-US',
@@ -64,7 +70,7 @@ export const getPopularMovies = async (page: number) => {
     return getMovies<Movies>(`movie/popular`, params)
 }
 
-export const getTopRatedMovies = async (page: number) => {
+export const getTopRatedMovies = (page: number) => {
     const params = {
         page: page.toString(),
         language: 'en-US',
@@ -73,6 +79,17 @@ export const getTopRatedMovies = async (page: number) => {
     }
 
     return getMovies<Movies>(`movie/top_rated`, params)
+}
+
+export const getMoviesByGenre = (genreId: number, page: number) => {
+    const params = {
+        page: page.toString(),
+        with_genres: genreId.toString(),
+        language: 'en-US',
+        include_adult: 'false'
+    }
+
+    return getMovies<Movies>(`discover/movie`, params)
 }
 
 //Send people request to generic GET functions
@@ -85,3 +102,11 @@ export const getPopularPeople = async (page: number) => {
 
     return getPeople<People>(`person/popular`, params)
 }
+
+
+
+
+
+
+//Search keyword: 'https://api.themoviedb.org/3/search/keyword?query=batman&page=1'
+//Genres: 'https://api.themoviedb.org/3/genre/movie/list?language=en'

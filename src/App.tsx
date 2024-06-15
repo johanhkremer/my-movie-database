@@ -9,6 +9,9 @@ import PopularMovies from "./pages/PopularMovies"
 import TopRatedMovies from "./pages/TopRatedMovies"
 import MovieDetails from './pages/MovieDetails';
 import PopularPeople from './pages/PopularPeople';
+import PeopleDetails from './pages/PeopleDetails';
+import GenreMovies from './pages/GenresMovies';
+
 
 function App() {
 
@@ -22,6 +25,8 @@ function App() {
         <Route path="/topratedmovies" element={<TopRatedMovies />} />
         <Route path="/movie/:id" element={< MovieDetails />} />
         <Route path='/popularpeople' element={<PopularPeople />} />
+        <Route path="/person/:id" element={< PeopleDetails />} />
+        <Route path="/genre/:id" element={< GenreMovies />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
 
