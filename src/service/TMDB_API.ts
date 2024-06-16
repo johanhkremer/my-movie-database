@@ -30,7 +30,12 @@ const getPeople = async <T>(endpoint: string, params?: object): Promise<TMDBMovi
 
 //GET details data with id
 export const getMovieDetails = async (id: number) => {
-    const results = await instance.get<Movie>(`movie/${id}?language=en-US`)
+    const results = await instance.get<Movie>(`movie/${id}`, {
+        params: {
+            language: 'en-US',
+            append_to_response: 'credits'
+        }
+    })
 
     return results.data
 }

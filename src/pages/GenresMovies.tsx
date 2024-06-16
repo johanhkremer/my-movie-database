@@ -11,7 +11,6 @@ const GenreMovies: React.FC = () => {
     const [page, setPage] = useState(1);
     const { id } = useParams<{ id: string }>();
 
-
     const {
         data,
         isLoading,
