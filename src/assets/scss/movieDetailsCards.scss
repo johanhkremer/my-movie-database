@@ -25,7 +25,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: #00000080;
     /* Extra mörk dimning om behövs */
 }
 
@@ -52,7 +52,7 @@
     width: 100%;
     max-width: 300px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px #0000004d;
 }
 
 .text-container {
@@ -104,7 +104,7 @@ h1 {
 
 /* Person card styles */
 .person-card {
-    width: 8rem;
+    width: 13rem;
     transition: transform 0.2s;
     height: auto;
     /* Adjusted to auto */
@@ -117,8 +117,8 @@ h1 {
 }
 
 .person-card img {
-    width: 100%;
-    height: 8rem;
+    max-width: 100%;
+    height: 12rem;
     object-fit: cover;
     border-radius: 8px;
 }

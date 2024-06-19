@@ -41,14 +41,24 @@ export const getMovieDetails = async (id: number) => {
 }
 
 export const getPersonDetails = async (id: number) => {
-    const results = await instance.get<Person>(`person/${id}?language=en-US`)
+    const results = await instance.get<Person>(`person/${id}`, {
+        params: {
+            language: 'en-US',
+            include_adult: 'false'
+        }
+    })
 
     return results.data
 }
 
 //Get list of genres
 export const getGenres = async () => {
-    const results = await instance.get<Genre>(`genre/movie/list?language=en'`)
+    const results = await instance.get<Genre>(`genre/movie/list`, {
+        params: {
+            language: 'en-US',
+            include_adult: 'false'
+        }
+    })
 
     return results.data
 }
@@ -69,7 +79,6 @@ export const getPopularMovies = (page: number) => {
         page: page.toString(),
         language: 'en-US',
         include_adult: 'false'
-
     }
 
     return getMovies<Movies>(`movie/popular`, params)
@@ -80,7 +89,6 @@ export const getTopRatedMovies = (page: number) => {
         page: page.toString(),
         language: 'en-US',
         include_adult: 'false'
-
     }
 
     return getMovies<Movies>(`movie/top_rated`, params)
@@ -108,10 +116,16 @@ export const getPopularPeople = async (page: number) => {
     return getPeople<People>(`person/popular`, params)
 }
 
+// Search
+export const searchMovie = async (query: string, page: number) => {
+    const results = await instance.get<TMDBMovieResponse<Movies>>(`search/movie`, {
+        params: {
+            query,
+            page: page.toString(),
+            language: 'en-US',
+            include_adult: 'false'
+        }
+    })
 
-
-
-
-
-//Search keyword: 'https://api.themoviedb.org/3/search/keyword?query=batman&page=1'
-//Genres: 'https://api.themoviedb.org/3/genre/movie/list?language=en'
+    return results.data
+}

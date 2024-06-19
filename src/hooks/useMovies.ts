@@ -15,5 +15,3 @@ export const useMovies = <T>({ queryKey, queryFn, page }: UseMovies<T>): UseQuer
         placeholderData: keepPreviousData,
     })
 }
-
-//! Måste fixa med keepPreviousData

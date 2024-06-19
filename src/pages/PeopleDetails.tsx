@@ -6,7 +6,6 @@ import PersonDetailsCard from "../components/PersonDetailsCard";
 function PersonDetails() {
     const { id } = useParams<{ id: string }>();
 
-
     const {
         isLoading,
         isError,

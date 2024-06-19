@@ -1,7 +1,7 @@
 .navbar-wrapper {
     width: 100%;
     position: relative;
-    z-index: 1000; // Ensure the navbar stays on top of other elements
+    z-index: 100;
 }
 
 .navbar-custom {
@@ -12,33 +12,33 @@
     .navbar-brand,
     .nav-link,
     .navbar-toggler {
-        color: white !important;
+        color: #ffffff; //Texten i navbaren
     }
 
     .navbar-brand:hover,
     .nav-link:hover,
     .navbar-toggler:hover {
-        color: #f0f0f0 !important;
+        color: #ffffff; //Färg när man hovrar över text i navbar
     }
 
     .nav-link {
         padding: 0.5rem 1rem;
     }
 
-    .navbar-toggler {
-        border-color: white;
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=UTF8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
     .dropdown-menu {
-        background: rgba(255, 255, 255, 0.9);
+        background: #ffffffff;
     }
 
     .dropdown-item {
-        color: #333;
+        color: #000000;
+    }
+
+    #navbarScrollingDropdownGenres {
+        color: #000000;
+    }
+
+    .genres {
+        color: #000000;
     }
 
     .dropdown-item:hover {
@@ -60,44 +60,6 @@
         &:hover {
             background: #d0bfff;
             color: white;
-        }
-    }
-}
-
-.navbar-custom.dark {
-    background: linear-gradient(135deg, #1f1f1f, #3c3c3c); // Dark gradient
-
-    .navbar-brand,
-    .nav-link,
-    .navbar-toggler {
-        color: #ccc !important; // Lighter color for dark mode
-    }
-
-    .navbar-brand:hover,
-    .nav-link:hover,
-    .navbar-toggler:hover {
-        color: #fff !important; // White on hover for dark mode
-    }
-
-    .dropdown-menu {
-        background: rgba(50, 50, 50, 0.9); // Dark background
-    }
-
-    .dropdown-item {
-        color: #eee; // Light text
-    }
-
-    .dropdown-item:hover {
-        background: #444; // Darker hover
-    }
-
-    .btn-outline-success {
-        border-color: #bbb;
-        color: #bbb;
-
-        &:hover {
-            background: #555;
-            color: #fff;
         }
     }
 }

@@ -1,11 +1,12 @@
 import { getNowPlayingMovies } from "../service/TMDB_API"
 import MovieCard from "../components/MoviesCard"
 import { useMovies } from "../hooks/useMovies"
-import { useState } from "react"
 import TMDBPagination from "../components/TMDBPagination"
+import { useSearchParams } from "react-router-dom"
 
 function NowPlayingMovies() {
-    const [page, setPage] = useState(1)
+    const [searchParams, setSearchParams] = useSearchParams();
+    const page = Number(searchParams.get('page')) || 1;
 
     const {
         isPending,
@@ -17,6 +18,10 @@ function NowPlayingMovies() {
         queryKey: ['nowPlaingMovies'],
         queryFn: getNowPlayingMovies, page,
     })
+
+    const handlePageChange = (newPage: number) => {
+        setSearchParams({ page: newPage.toString() });
+    };
 
     if (isPending) {
         return <span>Loading...</span>
@@ -31,7 +36,7 @@ function NowPlayingMovies() {
             <TMDBPagination
                 currentPage={page}
                 totalPages={data.total_pages > 500 ? 500 : data.total_pages}
-                setPage={setPage}
+                setPage={handlePageChange}
                 isFetching={isFetching}
             />
 
@@ -40,7 +45,7 @@ function NowPlayingMovies() {
             <TMDBPagination
                 currentPage={page}
                 totalPages={data.total_pages > 500 ? 500 : data.total_pages}
-                setPage={setPage}
+                setPage={handlePageChange}
                 isFetching={isFetching}
             />
         </>

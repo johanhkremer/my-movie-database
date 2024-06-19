@@ -1,4 +1,5 @@
 import { Person } from "../types/People"
+import "../assets/scss/personDetailsCards.scss"
 
 type PersonDetailsProps = {
     person: Person

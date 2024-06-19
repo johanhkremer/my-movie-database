@@ -1,6 +1,5 @@
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -12,12 +11,11 @@ import "../assets/scss/navbar.scss"
 function Navigation() {
     const { theme, toggleTheme } = useTheme();
 
-
     return (
-        <div className="navbar-wrapper">
+        <header className="navbar-wrapper">
             <Navbar expand="lg" className="navbar-custom">
                 <Container fluid>
-                    <Navbar.Brand as={Link} to="/">TMDB</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/">🎬 TMDB</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -49,21 +47,10 @@ function Navigation() {
                         <Button className='theme' onClick={toggleTheme}>
                             {theme === 'light' ? '🌙' : '☀️'}
                         </Button>
-
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
-
                     </Navbar.Collapse>
                 </Container>
             </Navbar >
-        </div>
+        </header>
     );
 }
 

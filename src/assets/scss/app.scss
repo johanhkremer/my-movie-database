@@ -1,6 +1,6 @@
 body.light {
-    background-color: #ebe2e2;
-    color: #100f0f;
+    background-color: #f3f3f3;
+    color: #2a2a2a;
 }
 
 body.dark {
@@ -11,4 +11,20 @@ body.dark {
 .app {
     font-family: Arial, sans-serif;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.app button {
+    background-color: rgb(143, 18, 216);
+    border: none;
+
+    &:hover {
+        background: #e0aaff;
+        color: #fff;
+    }
+
+    &:focus,
+    &:active {
+        background-color: #ad26fb;
+        transform: scale(0.95);
+    }
 }

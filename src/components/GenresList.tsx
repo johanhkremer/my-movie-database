@@ -31,7 +31,7 @@ const GenresList: React.FC = () => {
   return (
     <>
       {data.genres.map((genre) =>
-        <NavDropdown.Item key={genre.id} as={Link} to={`/genre/${genre.id}`}>
+        <NavDropdown.Item className="genres" key={genre.id} as={Link} to={`/genre/${genre.id}`}>
           {genre.name}
         </NavDropdown.Item>
       )}
