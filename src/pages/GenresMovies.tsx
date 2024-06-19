@@ -1,3 +1,4 @@
+import React from 'react';
 import MovieCard from "../components/MoviesCard"
 import TMDBPagination from "../components/TMDBPagination"
 import { useQuery } from "@tanstack/react-query"

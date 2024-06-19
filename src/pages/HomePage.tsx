@@ -1,3 +1,4 @@
+import React from 'react';
 import { useMovies } from "../hooks/useMovies";
 import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies } from "../service/TMDB_API";
 import { Movies } from "../types/Movies";

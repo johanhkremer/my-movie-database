@@ -1,3 +1,4 @@
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Movies } from '../types/Movies';
 import Container from 'react-bootstrap/Container';
@@ -7,17 +8,12 @@ import '../assets/scss/movieCards.scss'
 import { Link } from 'react-router-dom';
 import '../assets/scss/movieCards.scss'
 import placeholderMovie from '../assets/img/placeholderMovie.png'
-import { useState } from 'react';
-
 
 interface MovieCardProp {
     movies: Movies[];
 }
 
 const MovieCard: React.FC<MovieCardProp> = ({ movies }) => {
-    const [SerchQuery, setSerchQuery] = useState("")
-    const [searchResult, setSearchResult] = useState<Movies[]>([])
-    const [searching, setSearching] = useState(false)
 
     return (
         <Container>

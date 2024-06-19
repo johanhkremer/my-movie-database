@@ -31,7 +31,6 @@ const TMDBPagination: React.FC<PaginationProp> = ({ currentPage, totalPages, set
         const startPage = Math.max(currentPage - 2, 1);
         const endPage = Math.min(currentPage + 2, totalPages);
 
-        // Add Previous Ellipsis
         if (startPage > 1) {
             items.push(
                 <Pagination.Item key={1} onClick={() => handlePageClick(1)}>
@@ -43,7 +42,6 @@ const TMDBPagination: React.FC<PaginationProp> = ({ currentPage, totalPages, set
             }
         }
 
-        // Add Page Numbers
         for (let page = startPage; page <= endPage; page++) {
             items.push(
                 <Pagination.Item
@@ -56,7 +54,6 @@ const TMDBPagination: React.FC<PaginationProp> = ({ currentPage, totalPages, set
             );
         }
 
-        // Add Next Ellipsis
         if (endPage < totalPages) {
             if (endPage < totalPages - 1) {
                 items.push(<Pagination.Ellipsis key="next-ellipsis" />);

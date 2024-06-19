@@ -1,17 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./assets/scss/app.scss"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { Routes, Route } from "react-router-dom"
+import GenreMovies from './pages/GenresMovies';
 import HomePage from "./pages/HomePage"
+import MovieDetails from './pages/MovieDetails';
 import Navigation from "./components/Navbar"
 import NowPlayingMovies from "./pages/NowPlayingMovies"
 import PageNotFound from "./pages/PageNotFound"
-import PopularMovies from "./pages/PopularMovies"
-import TopRatedMovies from "./pages/TopRatedMovies"
-import MovieDetails from './pages/MovieDetails';
-import PopularPeople from './pages/PopularPeople';
 import PeopleDetails from './pages/PeopleDetails';
-import GenreMovies from './pages/GenresMovies';
-import "./assets/scss/app.scss"
+import PopularMovies from "./pages/PopularMovies"
+import PopularPeople from './pages/PopularPeople';
+import React from 'react';
+import TopRatedMovies from "./pages/TopRatedMovies"
 
 
 function App() {

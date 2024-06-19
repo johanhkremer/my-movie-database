@@ -1,3 +1,4 @@
+import React from 'react';
 import { useQuery } from "@tanstack/react-query"
 import { getMovieDetails } from "../service/TMDB_API"
 import { useParams } from "react-router-dom"

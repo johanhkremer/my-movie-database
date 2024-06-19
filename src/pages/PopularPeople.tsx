@@ -1,3 +1,4 @@
+import React from 'react';
 import { getPopularPeople } from "../service/TMDB_API"
 import MovieCard from "../components/PeopleCard"
 import { usePeople } from "../hooks/usePeople"
