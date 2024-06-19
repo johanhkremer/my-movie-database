@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from "@tanstack/react-query"
 import { getPersonDetails } from "../service/TMDB_API"
 import { useParams } from "react-router-dom"

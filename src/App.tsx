@@ -11,9 +11,7 @@ import PageNotFound from "./pages/PageNotFound"
 import PeopleDetails from './pages/PeopleDetails';
 import PopularMovies from "./pages/PopularMovies"
 import PopularPeople from './pages/PopularPeople';
-import React from 'react';
 import TopRatedMovies from "./pages/TopRatedMovies"
-
 
 function App() {
 

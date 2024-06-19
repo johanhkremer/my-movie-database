@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import { Genre, Movie, Movies, TMDBMovieResponse } from "../types/Movies";
 import { People, Person, TMDBPeopleResponse } from "../types/People";

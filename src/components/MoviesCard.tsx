@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Movies } from '../types/Movies';
 import Container from 'react-bootstrap/Container';

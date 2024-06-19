@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from "@tanstack/react-query";
 import { Genre } from "../types/Movies";
 import { getGenres } from "../service/TMDB_API";

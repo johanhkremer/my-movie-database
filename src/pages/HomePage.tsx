@@ -1,4 +1,3 @@
-import React from 'react';
 import { useMovies } from "../hooks/useMovies";
 import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies } from "../service/TMDB_API";
 import { Movies } from "../types/Movies";
@@ -48,14 +47,16 @@ const HomePage: React.FC = () => {
 
     return (
         <div className="homepage">
-            <div
-                className="backdrop"
-                style={{
-                    backgroundImage: randomBackdrop
-                        ? `linear-gradient(rgba(45, 0, 78, 0.6), rgba(45, 0, 78, 0.6)), url(https://image.tmdb.org/t/p/original${randomBackdrop})`
-                        : 'none'
-                }}
-            >
+            <div className="backdropContainer">
+                <div
+                    className="backdrop"
+                    style={{
+                        backgroundImage: randomBackdrop
+                            ? `linear-gradient(rgba(45, 0, 78, 0.6), rgba(45, 0, 78, 0.6)), url(https://image.tmdb.org/t/p/original${randomBackdrop})`
+                            : 'none'
+                    }}
+                >
+                </div>
             </div>
 
             <Container>

@@ -1,4 +1,3 @@
-import React from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 import '../assets/scss/tmdbPagination.scss';
 

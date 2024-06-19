@@ -1,4 +1,3 @@
-import React from 'react';
 import '../assets/scss/homePage.scss'
 import '../assets/scss/movieCards.scss'
 import { Link } from 'react-router-dom';

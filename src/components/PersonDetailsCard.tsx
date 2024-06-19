@@ -1,4 +1,3 @@
-import React from 'react';
 import { Person } from "../types/People"
 import "../assets/scss/personDetailsCards.scss"
 

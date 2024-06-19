@@ -1,4 +1,3 @@
-import React from 'react';
 import { getNowPlayingMovies } from "../service/TMDB_API"
 import MovieCard from "../components/MoviesCard"
 import { useMovies } from "../hooks/useMovies"

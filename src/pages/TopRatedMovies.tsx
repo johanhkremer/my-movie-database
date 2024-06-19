@@ -1,4 +1,3 @@
-import React from 'react';
 import { getTopRatedMovies } from "../service/TMDB_API"
 import MovieCard from "../components/MoviesCard"
 import { useMovies } from "../hooks/useMovies"

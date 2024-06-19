@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, Col, Container, Row } from "react-bootstrap"
 import { Movie } from "../types/Movies"
 import { Link } from "react-router-dom"
