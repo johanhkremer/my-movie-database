@@ -1,4 +1,5 @@
 import Pagination from 'react-bootstrap/Pagination';
+import '../assets/scss/tmdbPagination.scss';
 
 interface PaginationProp {
     currentPage: number
@@ -81,7 +82,7 @@ const TMDBPagination: React.FC<PaginationProp> = ({ currentPage, totalPages, set
 
     return (
 
-        <Pagination className='container d-flex justify-content-center mt-3'>
+        <Pagination className='tmdb-pagination container d-flex justify-content-center mt-3'>
             <Pagination.First onClick={() => setPage(1)} disabled={currentPage === 1} />
             <Pagination.Prev onClick={handelPrevious} disabled={currentPage === 1} />
 
@@ -95,5 +96,4 @@ const TMDBPagination: React.FC<PaginationProp> = ({ currentPage, totalPages, set
 
 export default TMDBPagination;
 
-//! Bugg! Popular-sidan hänger sig när man klickar på lastPage
 //! Måste ordna så pagineringen på specifika sidor fungerar

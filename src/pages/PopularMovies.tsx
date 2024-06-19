@@ -31,7 +31,7 @@ function PopularMovies() {
         <>
             <TMDBPagination
                 currentPage={page}
-                totalPages={data.total_pages}
+                totalPages={data.total_pages > 500 ? 500 : data.total_pages}
                 setPage={setPage}
                 isFetching={isFetching}
             />
@@ -40,7 +40,7 @@ function PopularMovies() {
 
             <TMDBPagination
                 currentPage={page}
-                totalPages={data.total_pages}
+                totalPages={data.total_pages > 500 ? 500 : data.total_pages}
                 setPage={setPage}
                 isFetching={isFetching}
             />

@@ -1,0 +1,121 @@
+.navbar-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 1000; // Ensure the navbar stays on top of other elements
+}
+
+.navbar-custom {
+    width: 100%;
+    background: linear-gradient(135deg, #591891, #b274e6); // Default gradient for light mode
+    padding: 10px 0;
+
+    .navbar-brand,
+    .nav-link,
+    .navbar-toggler {
+        color: white !important;
+    }
+
+    .navbar-brand:hover,
+    .nav-link:hover,
+    .navbar-toggler:hover {
+        color: #f0f0f0 !important;
+    }
+
+    .nav-link {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-toggler {
+        border-color: white;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=UTF8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .dropdown-menu {
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .dropdown-item {
+        color: #333;
+    }
+
+    .dropdown-item:hover {
+        background: #e0aaff;
+    }
+
+    .form-control {
+        border-radius: 20px;
+        padding: 0.375rem 1.5rem;
+    }
+
+    .btn-outline-success {
+        border-color: #d0bfff;
+        color: #d0bfff;
+        border-radius: 20px;
+        padding: 0.375rem 1.5rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #d0bfff;
+            color: white;
+        }
+    }
+}
+
+.navbar-custom.dark {
+    background: linear-gradient(135deg, #1f1f1f, #3c3c3c); // Dark gradient
+
+    .navbar-brand,
+    .nav-link,
+    .navbar-toggler {
+        color: #ccc !important; // Lighter color for dark mode
+    }
+
+    .navbar-brand:hover,
+    .nav-link:hover,
+    .navbar-toggler:hover {
+        color: #fff !important; // White on hover for dark mode
+    }
+
+    .dropdown-menu {
+        background: rgba(50, 50, 50, 0.9); // Dark background
+    }
+
+    .dropdown-item {
+        color: #eee; // Light text
+    }
+
+    .dropdown-item:hover {
+        background: #444; // Darker hover
+    }
+
+    .btn-outline-success {
+        border-color: #bbb;
+        color: #bbb;
+
+        &:hover {
+            background: #555;
+            color: #fff;
+        }
+    }
+}
+
+.theme {
+    display: inline-block;
+    background-color: #b274e6;
+    margin-right: 1rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    border: #591891; // Ingen kantlinje
+    cursor: pointer;
+
+    &:hover {
+        background: #e0aaff;
+        color: #fff;
+    }
+}

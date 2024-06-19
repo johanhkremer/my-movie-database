@@ -1,0 +1,61 @@
+.tmdb-pagination {
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-item {
+        margin: 0 3px;
+
+        .page-link {
+            border: none;
+            background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+            /* Lila gradient */
+            color: white;
+            border-radius: 5px;
+            padding: 5px 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, transform 0.2s ease;
+
+            &:hover {
+                background: linear-gradient(135deg, #6a1b9a, #8a2be2);
+                /* Mörkare lila gradient vid hover */
+                color: white;
+                transform: scale(1.05);
+                /* Lätt zoom vid hover */
+            }
+
+            &.active {
+                background: linear-gradient(135deg, #4a148c, #6a1b9a);
+                /* Ännu mörkare gradient för aktiva sidor */
+                color: white;
+                cursor: default;
+                pointer-events: none;
+            }
+
+            &.disabled {
+                background: #f0f0f0;
+                /* Ljusgrå bakgrund för inaktiva sidor */
+                color: #ccc;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .page-item.disabled .page-link {
+        background: #ccc;
+        /* Ljusgrå för disabled state */
+        color: white;
+        pointer-events: none;
+    }
+
+    .page-item:first-child .page-link,
+    .page-item:last-child .page-link {
+        border-radius: 5px;
+        /* Rundade hörn för första och sista knappen */
+    }
+}

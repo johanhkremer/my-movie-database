@@ -25,7 +25,6 @@ const PersonCard: React.FC<PersonCardProp> = ({ people }) => {
                                 />
                                 <Card.Body>
                                     <Card.Title className='person-card-title'>{person.name}</Card.Title>
-                                    <Card.Text className='person-card-text'>Real Name: {person.original_name}</Card.Text>
                                 </Card.Body>
                             </Card>
                         </Link>

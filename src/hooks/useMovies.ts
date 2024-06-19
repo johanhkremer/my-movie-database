@@ -1,4 +1,4 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query'
+import { keepPreviousData, useQuery, UseQueryResult } from '@tanstack/react-query'
 import { TMDBMovieResponse } from '../types/Movies'
 
 export type UseMovies<T> = {
@@ -11,6 +11,8 @@ export const useMovies = <T>({ queryKey, queryFn, page }: UseMovies<T>): UseQuer
     return useQuery<TMDBMovieResponse<T>, Error>({
         queryKey: [...queryKey, page],
         queryFn: () => queryFn(page),
+        enabled: !!queryKey,
+        placeholderData: keepPreviousData,
     })
 }
 

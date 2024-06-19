@@ -11,6 +11,7 @@ import MovieDetails from './pages/MovieDetails';
 import PopularPeople from './pages/PopularPeople';
 import PeopleDetails from './pages/PeopleDetails';
 import GenreMovies from './pages/GenresMovies';
+import "./assets/scss/app.scss"
 
 
 function App() {

@@ -3,6 +3,7 @@ import { Genre } from "../types/Movies";
 import { getGenres } from "../service/TMDB_API";
 import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "../assets/scss/navbar.scss"
 
 const GenresList: React.FC = () => {
   const {

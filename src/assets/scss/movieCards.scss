@@ -1,7 +1,6 @@
-// movieCards.scss
 .movie-card {
-    width: 15rem; // Fast bredd
-    height: 100%; // Höjd anpassas efter innehållet
+    width: 15rem;
+    height: 100%;
     transition: transform 0.2s;
 
     &:hover {
@@ -11,16 +10,16 @@
 
 .movie-card-img {
     width: 100%;
-    height: 20rem; // Fast höjd för bilder
-    object-fit: cover; // Se till att bilderna fyller ut utrymmet korrekt
+    height: 20rem;
+    object-fit: cover;
 }
 
 .movie-card-title {
-    font-size: 0.9rem; // Justera textstorlek för titeln
+    font-size: 0.9rem;
 }
 
 .movie-card-text {
-    font-size: 0.6rem; // Justera textstorlek för release date
+    font-size: 0.6rem;
 }
 
 .movie-card-link {

@@ -1,11 +1,11 @@
-import Card from 'react-bootstrap/Card';
-import { Movies } from '../types/Movies';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import '../assets/scss/homePage.scss'
 import '../assets/scss/movieCards.scss'
 import { Link } from 'react-router-dom';
-import '../assets/scss/movieCards.scss'
+import { Movies } from '../types/Movies';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import placeholderMovie from '../assets/img/placeholderMovie.png'
 
 
@@ -20,7 +20,7 @@ const MovieCard: React.FC<MovieCardProp> = ({ movies }) => {
                 {movies.map((movie) => (
                     <Col key={movie.id} className='mb-3'>
                         <Link to={`/movie/${movie.id}`} className="movie-card-link" >
-                            <Card style={{ width: '15rem' }} className='movie-card'>
+                            <Card style={{ width: '5rem' }} className='movie-card'>
                                 <Card.Img
                                     variant="top"
                                     src={movie.poster_path
@@ -29,14 +29,9 @@ const MovieCard: React.FC<MovieCardProp> = ({ movies }) => {
                                     alt={movie.title}
                                     className='cardImg'
                                 />
-                                <Card.Body>
-                                    <Card.Title className='movie-card-title'>{movie.title}</Card.Title>
-                                    <Card.Text className='movie-card-text'>{movie.release_date}</Card.Text>
-                                </Card.Body>
                             </Card>
                         </Link>
                     </Col>
-
                 ))}
             </Row>
         </Container >

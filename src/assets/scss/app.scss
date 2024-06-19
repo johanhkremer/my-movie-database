@@ -1,0 +1,14 @@
+body.light {
+    background-color: #ebe2e2;
+    color: #100f0f;
+}
+
+body.dark {
+    background-color: #100f0f;
+    color: #ebe2e2;
+}
+
+.app {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
