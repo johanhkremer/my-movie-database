@@ -5,9 +5,12 @@ import TMDBPagination from "../components/TMDBPagination"
 import { useSearchParams } from "react-router-dom"
 
 function NowPlayingMovies() {
+    // Page value is used to determine the current pagination state for displaying paged data.
     const [searchParams, setSearchParams] = useSearchParams();
+    // Retrieves the search parameters from the URL using useSearchParams.
     const page = Number(searchParams.get('page')) || 1;
 
+    //Using React Query (TanStack) via useMovie custom hook to featch data
     const {
         isPending,
         isError,
@@ -19,10 +22,12 @@ function NowPlayingMovies() {
         queryFn: getNowPlayingMovies, page,
     })
 
+    //Function setting current page to params
     const handlePageChange = (newPage: number) => {
         setSearchParams({ page: newPage.toString() });
     };
 
+    // Handling loading states and errors during data fetching.
     if (isPending) {
         return <span>Loading...</span>
     }
@@ -31,8 +36,13 @@ function NowPlayingMovies() {
         return <span>Error: {error.message}</span>
     }
 
+    if (!data) {
+        return <span>No data found</span>
+    }
+
     return (
         <>
+            {/* Pagination component (Limited to 500 pages to prevent performance issues and crashes that occur with very high page numbers) */}
             <TMDBPagination
                 currentPage={page}
                 totalPages={data.total_pages > 500 ? 500 : data.total_pages}
@@ -40,6 +50,7 @@ function NowPlayingMovies() {
                 isFetching={isFetching}
             />
 
+            {/* Component with moviecards */}
             <MovieCard movies={data.results} />
 
             <TMDBPagination

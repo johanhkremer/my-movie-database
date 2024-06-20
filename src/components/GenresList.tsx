@@ -5,6 +5,7 @@ import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../assets/scss/navbar.scss"
 
+//Function for retriving list of movie genres
 const GenresList: React.FC = () => {
   const {
     data,
@@ -16,6 +17,7 @@ const GenresList: React.FC = () => {
     queryFn: getGenres,
   });
 
+  // Handling loading states and errors during data fetching.
   if (isLoading) {
     return <span>Loading...</span>
   }
@@ -30,6 +32,7 @@ const GenresList: React.FC = () => {
 
   return (
     <>
+      {/* Mapping retrived list of genres that is then being used in navbar menu */}
       {data.genres.map((genre) =>
         <NavDropdown.Item className="genres" key={genre.id} as={Link} to={`/genre/${genre.id}`}>
           {genre.name}

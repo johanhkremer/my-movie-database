@@ -44,7 +44,8 @@ export const getPersonDetails = async (id: number) => {
     const results = await instance.get<Person>(`person/${id}`, {
         params: {
             language: 'en-US',
-            include_adult: 'false'
+            include_adult: 'false',
+            append_to_response: 'combined_credits'
         }
     })
 
@@ -116,7 +117,7 @@ export const getPopularPeople = async (page: number) => {
     return getPeople<People>(`person/popular`, params)
 }
 
-// Search
+// Search movies
 export const searchMovie = async (query: string, page: number) => {
     const results = await instance.get<TMDBMovieResponse<Movies>>(`search/movie`, {
         params: {

@@ -1,0 +1,33 @@
+.person-card {
+    width: 15rem;
+    height: 100%;
+    transition: transform 0.2s;
+    border: none;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.person-card-img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.person-card-title {
+    font-size: 0.9rem;
+}
+
+.person-card-text {
+    font-size: 0.6rem;
+}
+
+.person-card-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}

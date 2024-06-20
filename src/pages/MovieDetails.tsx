@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom"
 import MovieDetailsCard from "../components/MovieDetailsCard";
 
 function MovieDetails() {
+    // Extracting the 'id' parameter from the URL using useParams.
     const { id } = useParams<{ id: string }>();
 
-
+    //Using React Query (TanStack) to featch data
     const {
         isPending,
         isError,
@@ -16,6 +17,7 @@ function MovieDetails() {
             queryFn: () => getMovieDetails(Number(id))
         })
 
+    // Handling loading states and errors during data fetching.
     if (isPending) {
         return <span>Loading...</span>
     }
@@ -29,6 +31,7 @@ function MovieDetails() {
     }
 
     return (
+        // Component with detailed information about a movie
         <MovieDetailsCard movie={data} />
     )
 }

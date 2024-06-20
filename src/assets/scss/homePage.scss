@@ -8,6 +8,7 @@
         height: 30rem;
         width: 100%;
         overflow: hidden;
+
     }
 
     .backdrop {
@@ -20,19 +21,57 @@
         background-position: center;
         background-repeat: no-repeat;
         overflow: hidden;
+        background-position: top;
     }
 
     .search-container {
-        margin-top: 20px; // Liten marginal ovanför sökfältet
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        text-align: center;
+
+        h1 {
+            color: white;
+            margin-bottom: 5rem;
+        }
+
+        form {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+
+            .form-control {
+                border-radius: 0.25rem 0 0 0.25rem;
+                border-right: 0;
+            }
+
+            .btn {
+                border-radius: 0 0.25rem 0.25rem 0;
+                border-left: 0;
+                height: 100%;
+            }
+
+            .form-control,
+            .btn {
+                height: 2.5rem;
+            }
+        }
     }
 
     .movie-section {
-        margin-top: 1rem; // Separat varje filmsektion med en liten marginal
+        margin-top: 1rem;
         display: flex;
         flex-direction: column;
         gap: 10px;
         margin-left: 1rem;
-        margin-right: 1rem; // Gör det konsekvent på båda sidor
+        margin-right: 1rem;
 
         h2 {
             margin: 0 0 10px 0;

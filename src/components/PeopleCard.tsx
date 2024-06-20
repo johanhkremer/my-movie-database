@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import { People } from '../types/People';
+import '../assets/scss/peopleCard.scss'
 
 interface PersonCardProp {
     people: People[];
@@ -16,7 +17,7 @@ const PersonCard: React.FC<PersonCardProp> = ({ people }) => {
                 {people.map((person) => (
                     <Col key={person.id} className='mb-3'>
                         <Link to={`/person/${person.id}`} className="person-card-link" >
-                            <Card style={{ width: '15rem' }} className='person-card'>
+                            <Card style={{ width: '12rem' }} className='person-card'>
                                 <Card.Img
                                     variant="top"
                                     src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
