@@ -27,7 +27,7 @@ function App() {
           <Route path="/movie/:id" element={< MovieDetails />} />
           <Route path='/popularpeople' element={<PopularPeople />} />
           <Route path="/person/:id" element={< PeopleDetails />} />
-          <Route path="/genre/:id" element={< GenreMovies />} />
+          <Route path="/genre/:id/:name" element={< GenreMovies />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>

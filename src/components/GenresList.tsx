@@ -34,7 +34,7 @@ const GenresList: React.FC = () => {
     <>
       {/* Mapping retrived list of genres that is then being used in navbar menu */}
       {data.genres.map((genre) =>
-        <NavDropdown.Item className="genres" key={genre.id} as={Link} to={`/genre/${genre.id}`}>
+        <NavDropdown.Item className="genres" key={genre.id} as={Link} to={`/genre/${genre.id}/${genre.name}`}>
           {genre.name}
         </NavDropdown.Item>
       )}

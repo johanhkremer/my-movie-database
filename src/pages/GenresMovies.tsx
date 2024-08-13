@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 import { Movies, TMDBMovieResponse } from "../types/Movies"
 import { getMoviesByGenre } from "../service/TMDB_API"
 import { useParams, useSearchParams } from "react-router-dom"
+import '../assets/scss/genresMovies.scss'
 
 //Function for retriving and rendering movies from choosen genre
 const GenreMovies: React.FC = () => {
@@ -11,8 +12,9 @@ const GenreMovies: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const page = Number(searchParams.get('page')) || 1;
     const { id } = useParams<{ id: string }>();
+    const { name } = useParams<{ name: string }>()
 
-    //Using React Query (TanStack) to featch data
+    //Using React Query (TanStack) to fetch data
     const {
         data,
         isLoading,
@@ -29,6 +31,7 @@ const GenreMovies: React.FC = () => {
         setSearchParams({ page: newPage.toString() });
     };
 
+
     // Handling loading states and errors during data fetching.
     if (isLoading) {
         return <span>Loading...</span>
@@ -44,6 +47,7 @@ const GenreMovies: React.FC = () => {
 
     return (
         <>
+            <h2 className="genre-name">{name}</h2>
             {/* Pagination component (Limited to 500 pages to prevent performance issues and crashes that occur with very high page numbers) */}
             <TMDBPagination
                 currentPage={page}
