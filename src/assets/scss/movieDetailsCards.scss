@@ -70,7 +70,10 @@ h1 {
 }
 
 .cast-container {
-    padding-top: 20px;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
 }
 
 .cast-scroll {
@@ -79,9 +82,6 @@ h1 {
     white-space: nowrap;
     gap: 10px;
     padding: 10px 0;
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    margin-top: 20px;
 }
 
 .cast-scroll::-webkit-scrollbar {
@@ -119,12 +119,18 @@ h1 {
     font-size: 0.9rem;
     margin-top: 0.5rem;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .person-card-text {
     font-size: 0.6rem;
     margin-top: 0.25rem;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .person-card-link {

@@ -83,7 +83,6 @@ const HomePage: React.FC = () => {
                 <h1>Welcome to The Movie Database</h1>
             </div>
             {searching ? (
-                // Renders first 20 movies from now playing, popular and top rated movies
                 <div className="movie-section">
                     <h2>Search Results</h2>
                     <div className="movie-list">
@@ -93,7 +92,7 @@ const HomePage: React.FC = () => {
                     </div>
                 </div>
             ) : (
-                <>
+                <div className="movie-list-container">
                     <div className="movie-section">
                         <h2>Now Playing</h2>
                         <div className="movie-list">
@@ -120,7 +119,7 @@ const HomePage: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                </>
+                </div>
             )}
         </div>
     );

@@ -1,0 +1,9 @@
+.movie-card-container {
+    padding-bottom: 3rem
+}
+
+.movie-card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
