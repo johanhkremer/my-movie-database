@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import { Movies } from '../types/Movies';
+import { MovieListItem } from '../types/Movies';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +9,7 @@ import '../assets/scss/movieCards.scss'
 import placeholderMovie from '../assets/img/placeholderMovie.png'
 
 interface MovieCardProp {
-    movies: Movies[];
+    movies: MovieListItem[];
 }
 
 const MovieCard: React.FC<MovieCardProp> = ({ movies }) => {

@@ -1,6 +1,6 @@
 import { useMovies } from "../hooks/useMovies";
 import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies, searchMovie } from "../service/TMDB_API";
-import { Movies } from "../types/Movies";
+import { MovieListItem } from "../types/Movies";
 import MovieCardHome from "../components/MoviesCardHome";
 import "../assets/scss/homePage.scss";
 import Search from "../components/SearchMovies";
@@ -8,36 +8,36 @@ import { useState } from "react";
 
 const HomePage: React.FC = () => {
     //Statmanegement for search function 
-    const [searchResults, setSearchResults] = useState<Movies[]>([]);
+    const [searchResults, setSearchResults] = useState<MovieListItem[]>([]);
     const [searching, setSearching] = useState<boolean>(false);
 
     //Functions for featching top 20 now playing, popular and top rated movies
-    const nowPlaying = useMovies<Movies>({
+    const nowPlaying = useMovies<MovieListItem>({
         queryKey: ['nowPlaying'],
         queryFn: getNowPlayingMovies,
         page: 1
     });
 
-    const popular = useMovies<Movies>({
+    const popular = useMovies<MovieListItem>({
         queryKey: ['popular'],
         queryFn: getPopularMovies,
         page: 1
     });
 
-    const topRated = useMovies<Movies>({
+    const topRated = useMovies<MovieListItem>({
         queryKey: ['topRated'],
         queryFn: getTopRatedMovies,
         page: 1
     });
 
     //Function for state handeling searchresult
-    const handleSearchResults = (results: Movies[]) => {
+    const handleSearchResults = (results: MovieListItem[]) => {
         setSearchResults(results);
         setSearching(true);
     };
 
     // Function to randomly select a movie backdrop image from currently playing movies.
-    const getRandomBackdrop = (movies: Movies[]): string | null => {
+    const getRandomBackdrop = (movies: MovieListItem[]): string | null => {
         if (movies.length === 0) return null;
         const randomIndex = Math.floor(Math.random() * movies.length);
         return movies[randomIndex]?.backdrop_path || null;
@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
 
             {/* Search component */}
             <div className="search-container">
-                <Search<Movies>
+                <Search<MovieListItem>
                     searchFunction={(query: string) => searchMovie(query, 1).then(data => data.results)}
                     onSearchResults={handleSearchResults}
                 />

@@ -48,7 +48,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 };
 
 // Custom hook to use the theme context.
-export const useTheme = () => {
+// eslint-disable-next-line react-refresh/only-export-components
+export const useTheme =() => {
     const context = useContext(ThemeContext);
     if (!context) {
         throw new Error('Something went wrong');

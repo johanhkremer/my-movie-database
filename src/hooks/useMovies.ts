@@ -1,16 +1,16 @@
 import { keepPreviousData, useQuery, UseQueryResult } from '@tanstack/react-query'
-import { TMDBMovieResponse } from '../types/Movies'
+import { TMDBResponse } from '../types/TMDB'
 
 //Type definitions for useMovie hook
 export type UseMovies<T> = {
     queryKey: string[],
-    queryFn: (page: number) => Promise<TMDBMovieResponse<T>>,
+    queryFn: (page: number) => Promise<TMDBResponse<T>>,
     page: number
 }
 
 //useMovie generic <T> custom hook
-export const useMovies = <T>({ queryKey, queryFn, page }: UseMovies<T>): UseQueryResult<TMDBMovieResponse<T>, Error> => {
-    return useQuery<TMDBMovieResponse<T>, Error>({
+export const useMovies = <T>({ queryKey, queryFn, page }: UseMovies<T>): UseQueryResult<TMDBResponse<T>, Error> => {
+    return useQuery<TMDBResponse<T>, Error>({
         queryKey: [...queryKey, page],
         queryFn: () => queryFn(page),
         enabled: !!queryKey,

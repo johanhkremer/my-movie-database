@@ -1,7 +1,8 @@
 import MovieCard from "../components/MoviesCard"
 import TMDBPagination from "../components/TMDBPagination"
 import { useQuery } from "@tanstack/react-query"
-import { Movies, TMDBMovieResponse } from "../types/Movies"
+import { MovieListItem } from "../types/Movies"
+import { TMDBResponse } from "../types/TMDB"
 import { getMoviesByGenre } from "../service/TMDB_API"
 import { useParams, useSearchParams } from "react-router-dom"
 import '../assets/scss/genresMovies.scss'
@@ -21,7 +22,7 @@ const GenreMovies: React.FC = () => {
         isError,
         error,
         isFetching
-    } = useQuery<TMDBMovieResponse<Movies>, Error>({
+    } = useQuery<TMDBResponse<MovieListItem>, Error>({
         queryKey: ['moviesByGenre', id, page],
         queryFn: () => getMoviesByGenre(Number(id), page)
     });

@@ -1,10 +1,3 @@
-export interface TMDBPeopleResponse<T> {
-    page: number
-    results: T[]
-    total_pages: number
-    total_results: number
-}
-
 export interface People {
     adult: boolean;
     gender: number;
@@ -45,7 +38,7 @@ export interface Person {
     gender: number;
     homepage: string | null;
     id: number;
-    imdb_id: string;
+    imdb_id: string | null;
     known_for_department: string;
     name: string;
     place_of_birth: string | null;
@@ -54,22 +47,26 @@ export interface Person {
     combined_credits: {
         cast: {
             adult: boolean,
-            backdrop_path: string,
+            backdrop_path: string | null,
             genre_ids: number[],
             id: number,
             original_language: string,
-            original_title: string,
+            // movie credits have title/original_title/release_date, TV credits have name/original_name/first_air_date
+            original_title?: string,
+            original_name?: string,
             overview: string,
-            poster_path: string,
-            release_date: string,
-            title: string,
-            video: boolean,
+            poster_path: string | null,
+            release_date?: string,
+            first_air_date?: string,
+            title?: string,
+            name?: string,
+            video?: boolean,
             vote_average: number,
             vote_count: number,
             character: string,
             credit_id: string,
-            order: number,
-            media_type: string
+            order?: number,
+            media_type: 'movie' | 'tv'
         }[];
     }
 }

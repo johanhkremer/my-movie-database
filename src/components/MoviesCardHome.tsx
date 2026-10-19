@@ -1,7 +1,7 @@
 import '../assets/scss/homePage.scss'
 import '../assets/scss/movieCards.scss'
 import { Link } from 'react-router-dom';
-import { Movies } from '../types/Movies';
+import { MovieListItem } from '../types/Movies';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -10,7 +10,7 @@ import placeholderMovie from '../assets/img/placeholderMovie.png'
 import '../assets/scss/movieCardHome.scss'
 
 interface MovieCardProp {
-    movies: Movies[];
+    movies: MovieListItem[];
 }
 
 const MovieCard: React.FC<MovieCardProp> = ({ movies }) => {

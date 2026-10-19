@@ -1,6 +1,7 @@
 import axios from "axios";
-import { Genre, Movie, Movies, TMDBMovieResponse } from "../types/Movies";
-import { People, Person, TMDBPeopleResponse } from "../types/People";
+import { GenreList, Movie, MovieListItem } from "../types/Movies";
+import { People, Person } from "../types/People";
+import { TMDBResponse } from "../types/TMDB";
 
 const BASE_URL = import.meta.env.VITE_API_BASEURL
 const API_TOKEN = import.meta.env.VITE_ADRESS_TOKEN
@@ -8,22 +9,16 @@ const API_TOKEN = import.meta.env.VITE_ADRESS_TOKEN
 //Axios instance
 const instance = axios.create({
     baseURL: BASE_URL,
-    timeout: 1000, //1 sec
+    timeout: 10000, //10 sec
     headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${API_TOKEN}`
     }
 })
 
-//Generic GET function to handel different GET requests from TMDB API
-const getMovies = async <T>(endpoint: string, params?: object): Promise<TMDBMovieResponse<T>> => {
-    const results = await instance.get<TMDBMovieResponse<T>>(endpoint, { params })
-
-    return results.data
-}
-
-const getPeople = async <T>(endpoint: string, params?: object): Promise<TMDBMovieResponse<T>> => {
-    const results = await instance.get<TMDBPeopleResponse<T>>(endpoint, { params })
+//Generic GET function for TMDB list endpoints (movies, people)
+const getList = async <T>(endpoint: string, params?: object): Promise<TMDBResponse<T>> => {
+    const results = await instance.get<TMDBResponse<T>>(endpoint, { params })
 
     return results.data
 }
@@ -54,7 +49,7 @@ export const getPersonDetails = async (id: number) => {
 
 //Get list of genres
 export const getGenres = async () => {
-    const results = await instance.get<Genre>(`genre/movie/list`, {
+    const results = await instance.get<GenreList>(`genre/movie/list`, {
         params: {
             language: 'en-US',
             include_adult: 'false'
@@ -72,7 +67,7 @@ export const getNowPlayingMovies = (page: number) => {
         include_adult: 'false'
     }
 
-    return getMovies<Movies>('movie/now_playing', params)
+    return getList<MovieListItem>('movie/now_playing', params)
 }
 
 export const getPopularMovies = (page: number) => {
@@ -82,7 +77,7 @@ export const getPopularMovies = (page: number) => {
         include_adult: 'false'
     }
 
-    return getMovies<Movies>(`movie/popular`, params)
+    return getList<MovieListItem>(`movie/popular`, params)
 }
 
 export const getTopRatedMovies = (page: number) => {
@@ -92,7 +87,7 @@ export const getTopRatedMovies = (page: number) => {
         include_adult: 'false'
     }
 
-    return getMovies<Movies>(`movie/top_rated`, params)
+    return getList<MovieListItem>(`movie/top_rated`, params)
 }
 
 export const getMoviesByGenre = (genreId: number, page: number) => {
@@ -103,7 +98,7 @@ export const getMoviesByGenre = (genreId: number, page: number) => {
         include_adult: 'false'
     }
 
-    return getMovies<Movies>(`discover/movie`, params)
+    return getList<MovieListItem>(`discover/movie`, params)
 }
 
 //Send people request to generic GET functions
@@ -114,12 +109,12 @@ export const getPopularPeople = async (page: number) => {
         include_adult: 'false'
     }
 
-    return getPeople<People>(`person/popular`, params)
+    return getList<People>(`person/popular`, params)
 }
 
 // Search movies
 export const searchMovie = async (query: string, page: number) => {
-    const results = await instance.get<TMDBMovieResponse<Movies>>(`search/movie`, {
+    const results = await instance.get<TMDBResponse<MovieListItem>>(`search/movie`, {
         params: {
             query,
             page: page.toString(),

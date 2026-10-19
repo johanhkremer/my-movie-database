@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import { People } from '../types/People';
+import placeholderPerson from '../assets/img/placeholderPerson.png'
 import '../assets/scss/peopleCard.scss'
 
 interface PersonCardProp {
@@ -20,7 +21,9 @@ const PersonCard: React.FC<PersonCardProp> = ({ people }) => {
                             <Card style={{ width: '12rem' }} className='person-card'>
                                 <Card.Img
                                     variant="top"
-                                    src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+                                    src={person.profile_path
+                                        ? `https://image.tmdb.org/t/p/w500${person.profile_path}`
+                                        : placeholderPerson}
                                     alt={person.name}
                                     className='cardImg'
                                 />

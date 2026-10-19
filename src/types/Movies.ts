@@ -1,17 +1,10 @@
-export interface TMDBMovieResponse<T> {
-    page: number
-    results: T[]
-    total_pages: number
-    total_results: number
-}
-
-export interface Movies {
+export interface MovieListItem {
     backdrop_path: string | null;
     id: number;
     original_title: string;
     overview: string;
     poster_path: string | null;
-    media_type: 'movie';
+    media_type?: 'movie'; // only present in some endpoints, e.g. search/trending
     adult: boolean;
     title: string;
     original_language: string;
@@ -39,7 +32,7 @@ export interface Movie {
     }[];
     homepage: string;
     id: number;
-    imdb_id: string;
+    imdb_id: string | null;
     origin_country: string[];
     original_language: string;
     original_title: string;
@@ -79,7 +72,7 @@ export interface Movie {
             name: string,
             original_name: string,
             popularity: number,
-            profile_path: string,
+            profile_path: string | null,
             cast_id: number,
             character: string,
             credit_id: string,
@@ -88,7 +81,7 @@ export interface Movie {
     }
 }
 
-export interface Genre {
+export interface GenreList {
     genres: {
         id: number;
         name: string;

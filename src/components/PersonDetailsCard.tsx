@@ -29,8 +29,8 @@ const PersonDetailsCard: React.FC<PersonDetailsProps> = ({ person }) => {
             <Container className="cast-container">
                 <h2>Credits</h2>
                 <div className="cast-scroll">
-                    {person.combined_credits.cast.map((movie) => (
-                        <Link key={`${movie.id}`} to={`/movie/${movie.id}`} className="movie-card-link">
+                    {person.combined_credits.cast.filter((movie) => movie.media_type === 'movie').map((movie) => (
+                        <Link key={movie.credit_id} to={`/movie/${movie.id}`} className="movie-card-link">
                             <Card className='movie-card'>
                                 <Card.Img
                                     variant="top"

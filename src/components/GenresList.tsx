@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Genre } from "../types/Movies";
+import { GenreList } from "../types/Movies";
 import { getGenres } from "../service/TMDB_API";
 import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ const GenresList: React.FC = () => {
     isLoading,
     isError,
     error,
-  } = useQuery<Genre>({
+  } = useQuery<GenreList>({
     queryKey: ['Genres'],
     queryFn: getGenres,
   });
